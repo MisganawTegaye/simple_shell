@@ -231,7 +231,5 @@ int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
 
-#endif
-
-
+#endif /* _SHELL_H_ */
 
