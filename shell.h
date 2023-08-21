@@ -231,4 +231,9 @@ int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
 
+<<<<<<< HEAD
 #endif
+=======
+#endif /* _SHELL_H_ */
+
+>>>>>>> 808132e1968d01c91ea47744ac157f6f7e912958
