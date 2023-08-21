@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * custom_puts - prints an input string to stderr
- * @str: the string to be printed
+ * _eputs - Prints input string
+ * @str: String t/o be printed
  *
  * Return: Nothing
  */
-void custom_puts(char *str)
+void _eputs(char *str)
 {
 	int i = 0;
 
@@ -14,19 +14,19 @@ void custom_puts(char *str)
 		return;
 	while (str[i] != '\0')
 	{
-		custom_putchar(str[i]);
+		_eputchar(str[i]);
 		i++;
 	}
 }
 
 /**
- * custom_putchar - writes the character c to stderr
- * @c: The character to print
+ * _eputchar - Writes character c to stderr
+ * @c: Character to print
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: Success 1.
+ * On error, -1 is returned, errno is set appropriately.
  */
-int custom_putchar(char c)
+int _eputchar(char c)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -42,14 +42,14 @@ int custom_putchar(char c)
 }
 
 /**
- * custom_putfd - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
+ * _putfd - Writes character c to given fd
+ * @c: Character to print
+ * @fd: Filedescriptor to write to
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: Success 1.
+ * On error, -1 is returned, errno is set appropriately.
  */
-int custom_putfd(char c, int fd)
+int _putfd(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -65,13 +65,13 @@ int custom_putfd(char c, int fd)
 }
 
 /**
- * custom_putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
+ * _putsfd - Prints input string
+ * @str: String to be printed
+ * @fd: Filedescriptor to write to
  *
- * Return: the number of chars put
+ * Return: Number of characters put
  */
-int custom_putsfd(char *str, int fd)
+int _putsfd(char *str, int fd)
 {
 	int i = 0;
 
@@ -79,8 +79,7 @@ int custom_putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += custom_putfd(*str++, fd);
+		i += _putfd(*str++, fd);
 	}
 	return (i);
 }
-

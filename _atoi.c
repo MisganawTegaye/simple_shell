@@ -1,36 +1,37 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
- * is_shell_interactive - checks if shell is in interactive mode
- * @info: pointer to info_t struct
+ * interactive - Returns true if shell is interactive mode
+ * @info: Struct address
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
-int is_shell_interactive(info_t *info)
+int interactive(info_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_character_delimiter - checks if a character is a delimiter
- * @c: the character to check
- * @delimiter: the delimiter string
+ * is_delim - Checks if character is delimeter
+ * @c: Char to check
+ * @delim: Delimeter string
  * Return: 1 if true, 0 if false
  */
-int is_character_delimiter(char c, char *delimiter)
+int is_delim(char c, char *delim)
 {
-	while (*delimiter)
-		if (*delimiter++ == c)
+	while (*delim)
+		if (*delim++ == c)
 			return (1);
 	return (0);
 }
 
 /**
- * is_character_alphabetic - checks if a character is alphabetic
- * @c: The character to check
+ * _isalpha - Checks alphabetic character
+ * @c: Character input
  * Return: 1 if c is alphabetic, 0 otherwise
  */
-int is_character_alphabetic(int c)
+
+int _isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
@@ -39,11 +40,12 @@ int is_character_alphabetic(int c)
 }
 
 /**
- * custom_atoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
+ * _atoi - Converts string to integer
+ * @s: String to be converted
+ * Return: Always 0 if no numbers in string, converted number otherwise
  */
-int custom_atoi(char *s)
+
+int _atoi(char *s)
 {
 	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
@@ -70,4 +72,3 @@ int custom_atoi(char *s)
 
 	return (output);
 }
-

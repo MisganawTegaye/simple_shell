@@ -117,4 +117,3 @@ int myalias(info_t *info)
 
 	return (0);
 }
-
